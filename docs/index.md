@@ -12,7 +12,7 @@ hero:
   actions:
     - text: 前端导航
       link: /nav/
-    :
+features:
   - icon: 🚀
     title: 前端导航
     details: 整理前端常用工具库和在线工具

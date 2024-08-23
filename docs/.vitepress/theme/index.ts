@@ -1,11 +1,9 @@
 import { h, watch } from 'vue'
 import { useData, EnhanceAppContext } from 'vitepress'
 import DefaultTheme from 'vitepress/theme'
-
 import { createMediumZoomProvider } from './composables/useMediumZoom'
-
-import MLayout from './components/MLayout.vue'
-import MNavLinks from './components/MNavLinks.vue'
+import MyLayout from './components/layout.vue'
+import MyNavLinks from './components/MNavLinks.vue'
 
 import './styles/index.scss'
 
@@ -23,14 +21,14 @@ export default {
       props.class = frontmatter.value.layoutClass
     }
 
-    return h(MLayout, props)
+    return h(MyLayout, props)
   },
   enhanceApp({ app, router }: EnhanceAppContext) {
     createMediumZoomProvider(app, router)
 
     app.provide('DEV', process.env.NODE_ENV === 'development')
 
-    app.component('MNavLinks', MNavLinks)
+    app.component('MyNavLinks', MyNavLinks)
 
     if (typeof window !== 'undefined') {
       watch(
@@ -38,7 +36,7 @@ export default {
         () =>
           updateHomePageStyle(
             /* /vitepress-nav-template/ 是为了兼容 GitHub Pages */
-            location.pathname === '/' || location.pathname === '/vitepress-nav-template/',
+            location.pathname === '/' || location.pathname === '/zack/',
           ),
         { immediate: true },
       )
@@ -62,7 +60,6 @@ if (typeof window !== 'undefined') {
 function updateHomePageStyle(value: boolean) {
   if (value) {
     if (homePageStyle) return
-
     homePageStyle = document.createElement('style')
     homePageStyle.innerHTML = `
     :root {

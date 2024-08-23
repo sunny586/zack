@@ -67,35 +67,6 @@ export const NAV_DATA: NavData[] = [
     ],
   },
   {
-    title: '茂茂的站点导航',
-    items: [
-      {
-        icon: '/logo.png',
-        title: '前端日常笔记',
-        desc: '日常笔记记录（零零散散啥都记系列）',
-        link: 'https://github.com/maomao1996/daily-notes',
-      },
-      {
-        icon: '/logo.png',
-        title: '前端思维导图',
-        desc: '用思维导图的方式总结个人所学知识',
-        link: 'https://mindmap.fe-mm.com',
-      },
-      {
-        icon: 'https://qwerty.fe-mm.com/apple-touch-icon.png',
-        title: 'Qwerty Learner',
-        desc: '为键盘工作者设计的单词记忆与英语肌肉记忆锻炼软件',
-        link: 'https://qwerty.fe-mm.com',
-      },
-      {
-        icon: '/logo.png',
-        title: 'mmPlayer',
-        desc: 'mmPlayer 在线音乐播放器',
-        link: 'https://netease-music.fe-mm.com',
-      },
-    ],
-  },
-  {
     title: 'React 生态',
     items: [
       {
@@ -240,24 +211,6 @@ export const NAV_DATA: NavData[] = [
         title: 'NutUI',
         desc: '京东风格的轻量级移动端组件库',
         link: 'https://nutui.jd.com',
-      },
-    ],
-  },
-  {
-    title: 'JavaScript 框架类库',
-    items: [
-      {
-        icon: 'https://svelte.dev/svelte-logo-horizontal.svg',
-        title: 'Svelte',
-        desc: '将声明性组件转换为精准高效更新 DOM 的 JavaScript 代码',
-        link: 'https://svelte.dev',
-      },
-      {
-        // icon: 'https://simpleicons.org/icons/jquery.svg',
-        icon: '/icons/jquery.svg',
-        title: 'jQuery API 中文文档',
-        desc: '一个兼容多浏览器的 JavaScript 框架',
-        link: 'https://jquery.cuishifeng.cn',
       },
     ],
   },
@@ -559,47 +512,6 @@ export const NAV_DATA: NavData[] = [
         icon: 'https://static.zhihu.com/heifetz/assets/apple-touch-icon-60.362a8eac.png',
         desc: '中文互联网高质量的问答社区和创作者聚集的原创内容平台',
         link: 'https://juejin.cn',
-      },
-    ],
-  },
-  {
-    title: '摸鱼专用',
-    items: [
-      {
-        icon: 'https://momoyu.cc/icon-192.png',
-        title: '摸摸鱼热榜',
-        // desc: '聚合每日热门、搞笑、有趣、适合摸鱼的资讯',
-        link: 'https://momoyu.cc',
-      },
-      {
-        icon: 'https://v.qq.com/favicon.ico',
-        title: '腾讯视频',
-        // desc: '中国领先的在线视频媒体平台，海量高清视频在线观看',
-        link: 'https://v.qq.com',
-      },
-      {
-        icon: 'https://static.hdslb.com/mobile/img/512.png',
-        title: '哔哩哔哩',
-        // desc: '',
-        link: 'https://www.bilibili.com',
-      },
-      {
-        icon: 'https://www.youtube.com/s/desktop/014dbbed/img/favicon_48x48.png',
-        title: 'YouTube',
-        // desc: '',
-        link: 'https://www.youtube.com',
-      },
-      {
-        icon: '/icons/twitter.svg',
-        title: 'Twitter',
-        // desc: '',
-        link: 'https://twitter.com',
-      },
-      {
-        icon: '/icons/pixiv.png',
-        title: 'Pixiv',
-        // desc: '',
-        link: 'https://www.pixiv.net',
       },
     ],
   },

@@ -53,7 +53,7 @@ provide('toggle-appearance', async ({ clientX: x, clientY: y }: MouseEvent) => {
 </script>
 
 <template>
-  <Layout v-bind="$attrs">
+  <Layout v-bind="$attrs" class="zack-app-layout">
     <!--
       相关插槽
       https://vitepress.dev/zh/guide/extending-default-theme#layout-slots
@@ -87,15 +87,10 @@ provide('toggle-appearance', async ({ clientX: x, clientY: y }: MouseEvent) => {
   </Layout>
 </template>
 
-<style>
-.prev-next.prev-next {
-  border-top: none;
-}
-
-.doc-comments {
-  margin-top: 24px;
-  margin-bottom: 48px;
-  border-top: 1px solid var(--vp-c-divider);
-  padding-top: 24px;
+<style lang="scss" scoped>
+.zack-app-layout {
+  :deep(.logo) {
+    border-radius: 50%;
+  }
 }
 </style>

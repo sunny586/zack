@@ -141,7 +141,7 @@ Nav 页本身属于 MD 文件渲染，因此除引用的 data 文件用于数据
 ```ts
 # 前端导航  //标题
 
-<MNavLinks v-for="{title, items} in NAV_DATA" :title="title" :items="items"/>  //引用data.ts文件显示站点列表
+<MyNavLinks v-for="{title, items} in NAV_DATA" :title="title" :items="items"/>  //引用data.ts文件显示站点列表
 
 <br />
 

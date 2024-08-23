@@ -1,52 +1,63 @@
 import { basename } from 'node:path'
 import { defineConfig } from 'vitepress'
 import MarkdownPreview from 'vite-plugin-markdown-preview'
-
 import { head, nav, sidebar } from './configs'
 
 const APP_BASE_PATH = basename(process.env.GITHUB_REPOSITORY || '')
-
 console.log(process.env.GITHUB_REPOSITORY, 'process.env.GITHUB_REPOSITORY...')
 
 export default defineConfig({
   outDir: '../dist',
   base: APP_BASE_PATH ? `/${APP_BASE_PATH}/` : '/',
-
   lang: 'zh-CN',
-  title: '茂茂物语',
-  description: '茂茂的成长之路，包含前端常用知识、源码阅读笔记、各种奇淫技巧、日常提效工具等',
+  title: 'zack',
+  description: 'sunny586的学习笔记',
   head,
-
   lastUpdated: true,
   cleanUrls: true,
-
   /* markdown 配置 */
   markdown: {
     lineNumbers: true,
   },
-
   /* 主题配置 */
   themeConfig: {
+    search: {
+      provider: 'local',
+      options: {
+        locales: {
+          zh: {
+            translations: {
+              button: {
+                buttonText: '搜索文档',
+                buttonAriaLabel: '搜索文档',
+              },
+              modal: {
+                noResultsText: '无法找到相关结果',
+                resetButtonTitle: '清除查询条件',
+                footer: {
+                  selectText: '选择',
+                  navigateText: '切换',
+                },
+              },
+            },
+          },
+        },
+      },
+    },
     i18nRouting: false,
-
     logo: '/logo.png',
-
     nav,
     sidebar,
-
     /* 右侧大纲配置 */
     outline: {
       level: 'deep',
       label: '目录',
     },
-
     socialLinks: [{ icon: 'github', link: 'https://github.com/sunny586/vitepress-nav-template' }],
-
     footer: {
       message: '如有转载或 CV 的请标注本站原文地址',
-      copyright: 'Copyright © 2019-present maomao',
+      copyright: `Copyright © ${new Date().getFullYear()}-present zack`,
     },
-
     lastUpdated: {
       text: '最后更新于',
       formatOptions: {
@@ -54,23 +65,19 @@ export default defineConfig({
         timeStyle: 'medium',
       },
     },
-
     docFooter: {
       prev: '上一篇',
       next: '下一篇',
     },
-
     returnToTopLabel: '回到顶部',
     sidebarMenuLabel: '菜单',
     darkModeSwitchLabel: '主题',
     lightModeSwitchTitle: '切换到浅色模式',
     darkModeSwitchTitle: '切换到深色模式',
-
     /*** 自定义配置 ***/
     visitor: {
-      badgeId: 'sunny586.vitepress-nav-template',
+      badgeId: 'sunny586.zack',
     },
-
     comment: {
       repo: 'sunny586/zack',
       repoId: 'R_kgDOMkRzkg',
@@ -78,7 +85,6 @@ export default defineConfig({
       categoryId: 'DIC_kwDOMkRzks4ChvEk',
     },
   },
-
   vite: {
     plugins: [MarkdownPreview()],
   },

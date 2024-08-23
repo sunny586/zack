@@ -29,9 +29,8 @@ const isDocFooterVisible = computed(() => {
       />
       <p v-if="footer?.message">{{ footer.message }}</p>
     </div>
-    <p class="m-doc-footer-copyright" v-if="footer?.copyright">
-      {{ footer.copyright }}
-    </p>
+
+    <p class="m-doc-footer-copyright" v-if="footer?.copyright">{{ footer.copyright }}</p>
   </div>
 </template>
 

@@ -10,7 +10,7 @@ export default defineConfig({
   outDir: '../dist',
   base: APP_BASE_PATH ? `/${APP_BASE_PATH}/` : '/',
   lang: 'zh-CN',
-  title: 'zack',
+  title: 'zacknote',
   description: 'sunny586的学习笔记',
   head,
   lastUpdated: true,

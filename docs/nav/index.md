@@ -7,11 +7,9 @@ outline: [2, 3, 4]
 import { NAV_DATA } from './data'
 </script>
 
-# 前端导航
+FE 导航
 
 <my-nav-links v-for="{title, items} in NAV_DATA" :title="title" :items="items"/>
-
-<el-button>haha</el-button>
 
 <br />
 

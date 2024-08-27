@@ -1,9 +1,18 @@
 /***** vitepress 样式优化 ******/
 
+@media (min-width: 1440px) {
+  .VPDoc:not(.has-sidebar) .container {
+    max-width: 1440px !important;
+  }
+}
+
 /* 大屏大一点 */
 @media (min-width: 1440px) {
-  .VPDoc.has-aside .content-container.content-container {
-    max-width: 100%;
+  .VPDoc.has-aside .content {
+    max-width: 100% !important;
+    .content-container {
+      max-width: 100%;
+    }
   }
 }
 

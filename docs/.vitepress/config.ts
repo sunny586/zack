@@ -1,10 +1,10 @@
 import { basename } from 'node:path'
 import { defineConfig } from 'vitepress'
 import MarkdownPreview from 'vite-plugin-markdown-preview'
+
 import { head, nav, sidebar } from './configs'
 
 const APP_BASE_PATH = basename(process.env.GITHUB_REPOSITORY || '')
-console.log(process.env.GITHUB_REPOSITORY, 'process.env.GITHUB_REPOSITORY...')
 
 export default defineConfig({
   outDir: '../dist',

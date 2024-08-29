@@ -21,6 +21,12 @@
     "url": "https://github.com/sunny586/vitepress-nav-template/issues"
   },
   "homepage": "https://github.com/sunny586/vitepress-nav-template#readme",
+  "dependencies": {
+    "vite-plugin-markdown-preview": "^1.1.1",
+    "vitepress": "^1.0.1",
+    "vue": "^3.4.21",
+    "element-plus": "^2.8.1"
+  },
   "devDependencies": {
     "@femm/prettier": "^1.1.0",
     "@femm/tailwind-config": "^1.0.0",
@@ -36,10 +42,7 @@
     "postcss": "^8.4.33",
     "prettier": "^2.8.8",
     "sass": "^1.69.4",
-    "tailwindcss": "^3.4.1",
-    "vite-plugin-markdown-preview": "^1.1.1",
-    "vitepress": "^1.0.1",
-    "vue": "^3.4.21"
+    "tailwindcss": "^3.4.1"
   },
   "prettier": "@femm/prettier",
   "lint-staged": {

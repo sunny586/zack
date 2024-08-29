@@ -1,6 +1,8 @@
 import { h, watch } from 'vue'
 import { useData, EnhanceAppContext } from 'vitepress'
 import DefaultTheme from 'vitepress/theme'
+import ElementPlus from 'element-plus'
+import 'element-plus/dist/index.css'
 import { createMediumZoomProvider } from './composables/useMediumZoom'
 import MyLayout from './components/layout.vue'
 import MyNavLinks from './components/MNavLinks.vue'
@@ -15,21 +17,17 @@ export default {
     const props: Record<string, any> = {}
     // 获取 frontmatter
     const { frontmatter } = useData()
-
     /* 添加自定义 class */
     if (frontmatter.value?.layoutClass) {
       props.class = frontmatter.value.layoutClass
     }
-
     return h(MyLayout, props)
   },
   enhanceApp({ app, router }: EnhanceAppContext) {
     createMediumZoomProvider(app, router)
-
     app.provide('DEV', process.env.NODE_ENV === 'development')
-
+    app.use(ElementPlus)
     app.component('MyNavLinks', MyNavLinks)
-
     if (typeof window !== 'undefined') {
       watch(
         () => router.route.data.relativePath,

@@ -23,10 +23,11 @@
   },
   "homepage": "https://github.com/sunny586/vitepress-nav-template#readme",
   "dependencies": {
+    "dayjs": "^1.11.13",
+    "element-plus": "^2.8.1",
     "vite-plugin-markdown-preview": "^1.1.1",
     "vitepress": "^1.0.1",
-    "vue": "^3.4.21",
-    "element-plus": "^2.8.1"
+    "vue": "^3.4.21"
   },
   "devDependencies": {
     "@femm/prettier": "^1.1.0",

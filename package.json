@@ -44,7 +44,8 @@
     "postcss": "^8.4.33",
     "prettier": "^2.8.8",
     "sass": "^1.69.4",
-    "tailwindcss": "^3.4.1"
+    "tailwindcss": "^3.4.1",
+    "vite-plugin-chunk-split": "^0.5.0"
   },
   "prettier": "@femm/prettier",
   "lint-staged": {

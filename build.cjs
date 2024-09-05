@@ -57,7 +57,7 @@ function commitChanges() {
       return
     }
     console.log(`更改添加成功! ${stdout}`)
-    const commitMessage = 'update code zack_' + dayjs().format('YYYY-MM-DD HH:mm:ss')
+    const commitMessage = `update code zack ${dayjs().format('YYYY-MM-DD HH:mm:ss')}`
     exec(`git commit -m "${commitMessage}"`, { cwd: GITHUB_FOLDER }, (err, stdout, stderr) => {
       if (err) {
         console.error(`提交失败: ${stderr}`)

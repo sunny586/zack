@@ -1,5 +1,7 @@
 import { defineConfig } from 'vitepress'
 import MarkdownPreview from 'vite-plugin-markdown-preview'
+import { chunkSplitPlugin } from 'vite-plugin-chunk-split'
+
 import { head, nav, sidebar } from './configs'
 
 const PROD_BASE = '/zack/'
@@ -84,6 +86,17 @@ export default defineConfig({
     },
   },
   vite: {
-    plugins: [MarkdownPreview()],
+    plugins: [
+      MarkdownPreview(),
+      chunkSplitPlugin({
+        strategy: 'default',
+        customSplitting: {
+          'element-plus-vendor': ['element-plus'],
+        },
+      }),
+    ],
+    build: {
+      chunkSizeWarningLimit: 1000, // 设置为1000 kB
+    },
   },
 })

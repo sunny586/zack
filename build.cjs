@@ -1,4 +1,4 @@
-const fs = require('fs')
+const fs = require('fs-extra')
 const path = require('path')
 const { exec } = require('child_process')
 const dayjs = require('dayjs')
@@ -8,44 +8,7 @@ const GITHUB_FOLDER = '/Users/zhangyu/Desktop/zhangyu/github/sunny586.github.io'
 
 // 定义源文件夹和目标文件夹的路径
 const sourceFolder = path.resolve(__dirname, './dist')
-const targetFolder = `${GITHUB_FOLDER}/zack/`
-
-/**
- * 删除文件夹
- * @param {string} folder - 文件夹路径
- */
-function deleteFolder(folder) {
-  // 使用fs.rmdirSync()方法删除文件夹
-  try {
-    fs.rmSync(folder, { recursive: true })
-    console.log(folder + '-文件夹已成功删除')
-  } catch (err) {
-    console.error('删除文件夹时出错:', err)
-  }
-}
-
-/**
- * 移动文件
- */
-function moveFiles() {
-  if (fs.existsSync(sourceFolder)) {
-    if (!fs.existsSync(targetFolder)) {
-      fs.mkdirSync(targetFolder, { recursive: true })
-    }
-    fs.readdirSync(sourceFolder).forEach((item) => {
-      const sourcePath = path.join(sourceFolder, item)
-      const destPath = path.join(targetFolder, item)
-      if (fs.lstatSync(sourcePath).isDirectory()) {
-        fs.renameSync(sourcePath, destPath)
-      } else {
-        fs.renameSync(sourcePath, destPath)
-      }
-    })
-    deleteFolder(sourceFolder)
-  } else {
-    console.log(`源文件夹 ${sourceFolder} 不存在。`)
-  }
-}
+const targetFolder = `${GITHUB_FOLDER}/zack`
 
 /**
  * 提交更改
@@ -84,13 +47,15 @@ function commitChanges() {
   })
 }
 
-/**
- * 开始处理流程
- */
-function startProcess() {
-  deleteFolder(targetFolder)
-  moveFiles()
+async function run() {
+  // 如果文件夹不存在, 会创建空文件夹
+  // 文件夹中含有其他文件或文件夹时会清空所有
+  // 创建时返回文件夹绝对路径
+  await fs.emptyDirSync(targetFolder)
+  // 移动文件夹或文件, 源必须存在. 无返回值
+  await fs.moveSync(sourceFolder, targetFolder, { overwrite: true })
+  // git 提交
   commitChanges()
 }
 
-startProcess()
+run()

@@ -1,14 +1,12 @@
-import { basename } from 'node:path'
 import { defineConfig } from 'vitepress'
 import MarkdownPreview from 'vite-plugin-markdown-preview'
-
 import { head, nav, sidebar } from './configs'
 
-const APP_BASE_PATH = basename(process.env.GITHUB_REPOSITORY || '')
+const PROD_BASE = '/zack/'
 
 export default defineConfig({
   outDir: '../dist',
-  base: APP_BASE_PATH ? `/${APP_BASE_PATH}/` : '/',
+  base: process.env.NODE_ENV === 'production' ? PROD_BASE : '/',
   lang: 'zh-CN',
   title: 'zacknote',
   description: 'sunny586的学习笔记',

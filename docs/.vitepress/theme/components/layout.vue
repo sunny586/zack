@@ -15,8 +15,6 @@ const pageId = usePageId()
 
 const { comment } = theme.value
 
-console.log(comment, pageId)
-
 const enableTransitions = () =>
   'startViewTransition' in document &&
   window.matchMedia('(prefers-reduced-motion: no-preference)').matches

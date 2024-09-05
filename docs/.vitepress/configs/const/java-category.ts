@@ -1,7 +1,8 @@
 export const JAVA_CATEGORY = [
+  { text: '后端知识树', link: '/be/' },
   {
-    text: 'JAVA',
+    text: 'java',
     // collapsed: true,
-    items: [{ text: 'java基础', link: '/be/java/java基础' }],
+    items: [{ text: 'jdk21新特性', link: '/be/java/jdk21新特性' }],
   },
 ]

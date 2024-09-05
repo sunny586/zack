@@ -4,9 +4,10 @@ const { exec } = require('child_process')
 
 // 定义github文件夹的路径
 const GITHUB_FOLDER = '/Users/zhangyu/Desktop/zhangyu/github/sunny586.github.io'
+
 // 定义源文件夹和目标文件夹的路径
-const SOURCE_FOLDER = path.resolve(__dirname, './dist')
-const TARGET_FOLDER = `${GITHUB_FOLDER}/zack/`
+const sourceFolder = path.resolve(__dirname, './dist')
+const targetFolder = `${GITHUB_FOLDER}/zack/`
 
 /**
  * 获取当前日期和时间
@@ -42,22 +43,22 @@ function deleteFolder(folder) {
  * 移动文件
  */
 function moveFiles() {
-  if (fs.existsSync(SOURCE_FOLDER)) {
-    if (!fs.existsSync(TARGET_FOLDER)) {
-      fs.mkdirSync(TARGET_FOLDER, { recursive: true })
+  if (fs.existsSync(sourceFolder)) {
+    if (!fs.existsSync(targetFolder)) {
+      fs.mkdirSync(targetFolder, { recursive: true })
     }
-    fs.readdirSync(SOURCE_FOLDER).forEach((item) => {
-      const sourcePath = path.join(SOURCE_FOLDER, item)
-      const destPath = path.join(TARGET_FOLDER, item)
+    fs.readdirSync(sourceFolder).forEach((item) => {
+      const sourcePath = path.join(sourceFolder, item)
+      const destPath = path.join(targetFolder, item)
       if (fs.lstatSync(sourcePath).isDirectory()) {
         fs.renameSync(sourcePath, destPath)
       } else {
         fs.renameSync(sourcePath, destPath)
       }
     })
-    deleteFolder(SOURCE_FOLDER)
+    deleteFolder(sourceFolder)
   } else {
-    console.log(`源文件夹 ${SOURCE_FOLDER} 不存在。`)
+    console.log(`源文件夹 ${sourceFolder} 不存在。`)
   }
 }
 
@@ -102,7 +103,7 @@ function commitChanges() {
  * 开始处理流程
  */
 function startProcess() {
-  deleteFolder(TARGET_FOLDER)
+  deleteFolder(targetFolder)
   moveFiles()
   commitChanges()
 }

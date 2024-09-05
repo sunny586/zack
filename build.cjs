@@ -2,12 +2,11 @@ const fs = require('fs')
 const path = require('path')
 const { exec } = require('child_process')
 
+// 定义github文件夹的路径
+const GITHUB_FOLDER = '/Users/zhangyu/Desktop/zhangyu/github/sunny586.github.io'
 // 定义源文件夹和目标文件夹的路径
-const sourceFolder = '/Users/zhangyu/Desktop/zhangyu/zack/dist'
-const targetFolder = '/Users/zhangyu/Desktop/zhangyu/github/sunny586.github.io/zack/'
-
-// 提交文件夹的路径
-const commitFolderPath = '/Users/zhangyu/Desktop/zhangyu/github/sunny586.github.io'
+const SOURCE_FOLDER = path.resolve(__dirname, './dist')
+const TARGET_FOLDER = `${GITHUB_FOLDER}/zack/`
 
 /**
  * 获取当前日期和时间
@@ -43,22 +42,22 @@ function deleteFolder(folder) {
  * 移动文件
  */
 function moveFiles() {
-  if (fs.existsSync(sourceFolder)) {
-    if (!fs.existsSync(targetFolder)) {
-      fs.mkdirSync(targetFolder, { recursive: true })
+  if (fs.existsSync(SOURCE_FOLDER)) {
+    if (!fs.existsSync(TARGET_FOLDER)) {
+      fs.mkdirSync(TARGET_FOLDER, { recursive: true })
     }
-    fs.readdirSync(sourceFolder).forEach((item) => {
-      const sourcePath = path.join(sourceFolder, item)
-      const destPath = path.join(targetFolder, item)
+    fs.readdirSync(SOURCE_FOLDER).forEach((item) => {
+      const sourcePath = path.join(SOURCE_FOLDER, item)
+      const destPath = path.join(TARGET_FOLDER, item)
       if (fs.lstatSync(sourcePath).isDirectory()) {
         fs.renameSync(sourcePath, destPath)
       } else {
         fs.renameSync(sourcePath, destPath)
       }
     })
-    deleteFolder(sourceFolder)
+    deleteFolder(SOURCE_FOLDER)
   } else {
-    console.log(`源文件夹 ${sourceFolder} 不存在。`)
+    console.log(`源文件夹 ${SOURCE_FOLDER} 不存在。`)
   }
 }
 
@@ -66,28 +65,28 @@ function moveFiles() {
  * 提交更改
  */
 function commitChanges() {
-  exec('git add .', { cwd: commitFolderPath }, (err, stdout, stderr) => {
+  exec('git add .', { cwd: GITHUB_FOLDER }, (err, stdout, stderr) => {
     if (err) {
       console.error(`添加更改失败: ${stderr}`)
       return
     }
     console.log(`更改添加成功! ${stdout}`)
     const commitMessage = 'Update code_zack_' + getCurrentDateTime()
-    exec(`git commit -m "${commitMessage}"`, { cwd: commitFolderPath }, (err, stdout, stderr) => {
+    exec(`git commit -m "${commitMessage}"`, { cwd: GITHUB_FOLDER }, (err, stdout, stderr) => {
       if (err) {
         console.error(`提交失败: ${stderr}`)
         return
       }
       console.log(`提交成功! ${stdout}`)
       // 重新拉取代码
-      exec(`git pull --rebase`, { cwd: commitFolderPath }, (err, stdout, stderr) => {
+      exec(`git pull --rebase`, { cwd: GITHUB_FOLDER }, (err, stdout, stderr) => {
         if (err) {
           console.error(`拉取失败: ${stderr}`)
           return
         }
         console.log(`拉取成功! ${stdout}`)
         // 重新推送代码
-        exec(`git push`, { cwd: commitFolderPath }, (err, stdout, stderr) => {
+        exec(`git push`, { cwd: GITHUB_FOLDER }, (err, stdout, stderr) => {
           if (err) {
             console.error(`推送失败: ${stderr}`)
             return
@@ -103,7 +102,7 @@ function commitChanges() {
  * 开始处理流程
  */
 function startProcess() {
-  deleteFolder(targetFolder)
+  deleteFolder(TARGET_FOLDER)
   moveFiles()
   commitChanges()
 }

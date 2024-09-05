@@ -32,7 +32,7 @@ function getCurrentDateTime() {
 function deleteFolder(folder) {
   // 使用fs.rmdirSync()方法删除文件夹
   try {
-    fs.rmdirSync(folder, { recursive: true })
+    fs.rmSync(folder, { recursive: true })
     console.log(folder + '-文件夹已成功删除')
   } catch (err) {
     console.error('删除文件夹时出错:', err)

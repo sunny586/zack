@@ -53,4 +53,4 @@ function gitOperations(GITHUB_FOLDER) {
   }
 }
 
-module.exports = gitOperations // 导出gitOperations函数，以便在其他模块中使用
+module.exports = gitOperations

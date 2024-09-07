@@ -1,7 +1,8 @@
 import type { DefaultTheme } from 'vitepress'
-import { BE_CATEGORY, FE_CATEGORY } from '../const'
+import { BE, DSA, FE } from '../const'
 
 export const sidebar: DefaultTheme.Config['sidebar'] = {
-  '/be/': BE_CATEGORY,
-  '/fe/': FE_CATEGORY,
+  '/be/': BE,
+  '/fe/': FE,
+  '/dsa/': DSA,
 }

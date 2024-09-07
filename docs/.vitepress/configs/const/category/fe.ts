@@ -1,4 +1,4 @@
-export const FE_CATEGORY = [
+export const FE = [
   { text: '前端知识树', link: '/fe/' },
   {
     text: '前端工程化',

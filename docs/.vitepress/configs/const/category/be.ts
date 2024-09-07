@@ -1,4 +1,4 @@
-export const BE_CATEGORY = [
+export const BE = [
   { text: '后端知识树', link: '/be/' },
   {
     text: 'java',

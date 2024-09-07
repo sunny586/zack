@@ -1,2 +1,3 @@
-export * from './be-category'
-export * from './fe-category'
+export * from './category/be'
+export * from './category/fe'
+export * from './category/dsa'

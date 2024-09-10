@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "vitepress dev docs --port=8732",
     "build": "vitepress build docs",
-    "publish": "pnpm build && node ./deploy/index.cjs",
+    "build:github": "pnpm build && node ./deploy/index.cjs",
     "preview": "vitepress preview docs --port 8730",
     "prepare": "husky install",
     "format": "prettier --write ."

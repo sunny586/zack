@@ -6,8 +6,8 @@
   "private": true,
   "scripts": {
     "dev": "vitepress dev docs --port=8732",
-    "build": "vitepress build docs",
-    "build:github": "pnpm build && node ./deploy/index.cjs",
+    "docs:build": "vitepress build docs",
+    "deploy": "bash deploy.sh",
     "preview": "vitepress preview docs --port 8730",
     "prepare": "husky install",
     "format": "prettier --write ."

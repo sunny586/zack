@@ -1,4 +1,4 @@
-import { defineConfig } from 'vitepress'
+import { DefaultTheme, defineConfig, UserConfig } from 'vitepress'
 import MarkdownPreview from 'vite-plugin-markdown-preview'
 import { chunkSplitPlugin } from 'vite-plugin-chunk-split'
 
@@ -99,4 +99,4 @@ export default defineConfig({
       chunkSizeWarningLimit: 1000, // 设置为1000 kB
     },
   },
-})
+} as UserConfig<DefaultTheme.Config>)

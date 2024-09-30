@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-
 # zacknote
 
 ## 功能

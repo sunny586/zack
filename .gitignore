@@ -8,6 +8,8 @@
 node_modules
 
 # compiled output
+# dist
+# dist-dev
 cache
 .cache
 .temp

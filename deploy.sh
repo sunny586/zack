@@ -16,7 +16,6 @@ npm run docs:build
 cd $dist_path
 
 git init
-git rm -r --cached .
 git add -A
 git commit -m "deploy, $commit_info"
 git push -f $push_addr HEAD:$push_branch
